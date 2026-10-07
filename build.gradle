@@ -1,0 +1,26 @@
+// build.gradle: the recipe Gradle follows to build and run the app.
+
+plugins {
+    // Adds the "run" task, so "gradle run" can start a Java program.
+    id 'application'
+    // Downloads JavaFX and attaches it to the project (JavaFX is not bundled with the JDK).
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+repositories {
+    // Where Gradle looks to download libraries from.
+    mavenCentral()
+}
+
+javafx {
+    // Which JavaFX version to download.
+    version = '21'
+    // Which parts of JavaFX we use. "controls" = buttons, text fields, tables, etc.
+    modules = ['javafx.controls']
+}
+
+application {
+    // The class whose main() method starts the program.
+    // Must match the package + class name exactly.
+    mainClass = 'com.example.customermanager.Launcher'
+}
